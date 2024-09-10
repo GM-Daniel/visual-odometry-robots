@@ -16,6 +16,7 @@ import json
 
 
 path = 'realsense_data_02.bag'
+pth_model = 'model_complete_dict.pth'
 
 
 def draw_boxes(image, boxes, labels):
@@ -36,7 +37,7 @@ def initialize_model():
     global model
     num_classes = 2  # Replace with the number of classes in your dataset
     model = get_model(num_classes)
-    model_path = 'model_complete_dict.pth'
+    model_path = pth_model
     state_dict = torch.load(model_path, map_location=torch.device('cpu'))
     model.load_state_dict(state_dict)
     model.eval()
